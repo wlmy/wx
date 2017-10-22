@@ -1,0 +1,272 @@
+* {
+    box-sizing: border-box;
+}
+
+html {
+    font-family: "microsoft yahei";
+}
+body{
+    height: 100%;
+    margin: 0px;
+    padding: 0px;
+    border: 0px;
+}
+.guanggao{
+    background-color: black;
+    padding: 12px;
+}
+
+.guanggao span a{
+    color: white;
+    font-size: 12px;
+    font-family: "Microsoft YaHei", "微软雅黑", Helvetica, "黑体", Arial, Tahoma;
+}
+
+.main-container {
+    width: 100%;
+    height: auto;
+    padding: 0px;
+    margin: 0px;
+}
+.tab-nav-ctrl  {
+    box-sizing: border-box;
+    text-align: center;
+    margin: 0px;
+    padding: 0px;
+}
+.tab-nav-ctrl li {
+    box-sizing: border-box;
+    float: left;
+    text-align: center;
+    line-height: 32px;
+    list-style: none;
+    width: 50%;
+    margin: 0px;
+    padding: 0px;
+    border-bottom: 1px solid #ccc;
+}
+
+.tab-nav-ctrl li.current {
+    color: #2196f3;
+    border-bottom: 2px solid #009aff;
+}
+
+.tab-nav-section {
+    width: 100%;
+    color: #546e7a;
+    font-size: 13px;
+    background-color: #fff;
+
+}
+
+.clearfix {
+    zoom: 1;
+    margin: 0;
+}
+
+.live-desc-section {
+    width: 100%;
+    padding: 0 20px 0;
+    background: #fff;
+    overflow:auto;
+}
+
+.live-desc-info {
+    padding-bottom: 10px;
+    border-bottom: 1px solid #cfd8dc;
+}
+
+.pos-rel {
+    position: relative;
+}
+
+.live-desc-info .live-logo {
+    position: absolute;
+    width: 35px;
+    height: 35px;
+    margin: 0;
+}
+
+.live-logo {
+    font-size: 0;
+    overflow: hidden;
+}
+
+.live-desc-info .desc-info-content {
+    margin-left: 45px;
+}
+
+.live-desc-info .desc-info-content h2 {
+    margin-bottom: 5px;
+    font-size: 12px;
+    color: #78909c;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+.live-desc-info .desc-info-content .desc-like-num {
+    padding-left: 20px;
+    background-position: 0 0;
+}
+
+.live-desc-info .desc-info-content .desc-watch-num {
+    padding-left: 22px;
+    background-position: 0 -14px;
+}
+
+.live-desc-info .desc-info-content .desc-icon {
+    display: inline-block;
+    background-image: url(http://livestatic.videocc.net/assets/wimages/desc-icon.png);
+    background-size: 16px 26px;
+    background-repeat: no-repeat;
+    color: #546e7a;
+    font-size: 12px;
+    line-height: 1.2;
+}
+
+.live-desc-info .live-logo > img {
+    height: 100%;
+}
+
+
+
+.live-desc-info h1 {
+    margin-bottom: 10px;
+    font-size: 18px;
+    color: #000;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+.image-text-block {
+    padding: 20px;
+    background: #fff;
+}
+
+
+.wrap {
+    display: block;
+    width: 100%;
+    overflow: hidden;
+}
+
+.talk-logo img {
+    width: 50px;
+    height: 50px;
+    border-radius: 25px;
+}
+
+.talk{
+    list-style: none;
+    margin: 0px;
+    padding: 0px;
+}
+
+.ibox {
+    overflow: auto;
+    display: flex;
+    justify-content: space-between;
+    padding: 8px;
+}
+#publish-box{
+    width: 100%;
+    height:51px;
+    background-color: white;
+}
+.face-icon{
+    display: inline-block;
+    width: 35px;
+    height: 35px;
+    text-align:center ;
+    line-height: 35px;
+    vertical-align: middle;
+}
+.face-icon img {
+    width: 100%;
+}
+.ibox input {
+    display: inline-block;
+    height: 35px;
+    padding: 5px;
+    border-radius: 4px;
+    outline: none;
+    border: 1px solid #d5d5d5;
+    width: calc(94% - 105px);
+    margin-left: 3%;
+    margin-right: 3%;
+}
+
+.sendbtn {
+    display: inline-block;
+    border: 1px solid #e5e5e5;
+    font-size: 14px;
+    height: 35px;
+    line-height: 35px;
+    color: #fff;
+    border-radius: 4px;
+    background: #14a2f4;
+    cursor: pointer;
+    width: 70px;
+    text-align: center;
+}
+
+h2 {
+    text-align: right;
+    font-weight: 500;
+}
+
+li {
+    margin: 10px;
+    padding-bottom: 10px;
+}
+.talk li{
+    border-bottom: 1px solid #e5e5e5;
+}
+
+li > div {
+    display: inline-block;
+    margin-left: 20px;
+    vertical-align:top;
+}
+
+li img {
+    vertical-align: middle;
+}
+
+.nickname, .time {
+    font-size: 12px;
+    color: #666;
+    margin-right: 8px;
+}
+
+.userwrap {
+    font-size: 14px;
+}
+
+.userwrap img {
+    width: 50px;
+    height: 50px;
+    border-radius: 25px;
+}
+.emotions {
+    padding: 8px;
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+    height: 100px;
+    overflow-y: auto;
+}
+.emotions img {
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+}
+.emotionimg {
+    width: 30px;
+    height: 30px;
+}
+.main-container .SeptembeOon-time-overcoat {
+    line-height: 32px;
+}

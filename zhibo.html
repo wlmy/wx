@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <meta content="yes" name="apple-mobile-web-app-capable">
+    <meta content="black" name="apple-mobile-web-app-status-bar-style">
+    <meta content="telephone=no" name="format-detection">
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+    <meta name="baidu-site-verification" content="wcMMFTPk07"/>
+    <title>{$info.title}</title>
+    <!--<link rel="stylesheet" href="__HFCSS__/gongkaike/weui.css" />-->
+    <!--<link rel="stylesheet" href="__HFCSS__/gongkaike/base.css" />-->
+    <link rel="stylesheet" href="__HFCSS__/gongkaike/index.css" />
+    <!--<link rel="stylesheet" href="__HFCSS__/gongkaike/jquery-weui.min.css"/>-->
+	<link rel="stylesheet" href="/Public/static/haifeng/css/gongkaike/zhibo.css"/>
+    <script src="//cdn.bootcss.com/jquery/1.11.1/jquery.min.js"></script>
+    <link href="//cdn.bootcss.com/bootstrap/3.3.1/css/bootstrap.min.css" rel="stylesheet">
+    <script src="//cdn.bootcss.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
+    <script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-2.2.4.min.js"></script>
+    <script src="http://livestatic.videocc.net/assets/wjs/dist/socket.io.min.js "></script> <!-- 必须引入socketio -->
+    <script src="__HFJS__/emotions.js"></script> <!-- 表情列表，可根据需要设定表情 -->
+    <script type="text/javascript">
+        var chatHost = 'http://chat.polyv.net:8000',  //socket连接地址
+            chatHost2 = "http://api.chat.polyv.net:80",  //获取聊天内容地址
+            chatToken = '<?php echo $token ?>',
+            roomId = "{$info.room}",
+            userId = '<?php echo $userId ?>',
+            nickname = '<?php echo $my_name?>',   //自定义用户名
+            pic = '<?php echo $pic ?>';
+    </script>
+</head>
+
+<body>
+<div class="main-container">
+
+    <div class=" panel-default">
+        <div class="panel-heading">
+            海风教育房间号：({$info.room})
+            <a href="javascript:location.reload();" class="btn btn-info "
+               style="position:absolute;top:5px;right:80px;padding:5px;"> 刷新</a>
+            <a href="" class="btn btn-info "
+               style="position:absolute;top:5px; right:5px; padding:5px;"> 问卷调查</a>
+        </div>
+        <div class="panel-body" style="padding: 0px;">
+            <div id='player'></div>
+        </div>
+        <div id="toast livetiome" class="time_down">
+            <div class="weuitoastindex" style="top: 40px;height: 202px;min-height: 202px;">
+                <div class="opnetimeall" style="top: 10%;position: relative;">
+                    <p class="SeptembeOon-button">距离直播开始还有</p>
+                    <div style="width:100%;">
+                        <div class="SeptembeOon-all">
+                            <div class="SeptembeOon-div SeptembeOon-time-overcoat"><span class="SeptembeOon-time SeptembeOon-time-size day">0天</span></div>
+                            <span class="SeptembeOon-time-size SeptembeOon-time-color">:</span>
+                            <div class="SeptembeOon-div SeptembeOon-time-overcoat"><span class="SeptembeOon-time SeptembeOon-time-size hour">0时</span></div>
+                            <span class="SeptembeOon-time-size SeptembeOon-time-color">:</span>
+                            <div class="SeptembeOon-div SeptembeOon-time-overcoat"><span class="SeptembeOon-time SeptembeOon-time-size minute">0分</span></div>
+                            <span class="SeptembeOon-time-size SeptembeOon-time-color">:</span>
+                            <div class="SeptembeOon-div SeptembeOon-time-overcoat"><span class="SeptembeOon-time SeptembeOon-time-size second">0秒</span></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <?php $intro = $info['intro'];
+            if(strpos($intro, '#')){
+              $data = explode('#', $intro);
+            ?>
+        <div class="guanggao">
+            <span style="color: white"><&nbsp;&nbsp;</span><span><a href="<?php echo $data[1]?>"><?php echo $data[0]?></a></span>
+        </div>
+        <?php } ?>
+        <div class="tab-nav-section">
+            <ul class="tab-nav-ctrl clearfix">
+                <li id="tab-chat" onmouseover="changeTab(0)" class="current"><span>互动聊天</span></li>
+                <li id="tab-desc" onmouseover="changeTab(1)"><span>直播介绍</span></li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="wrap">
+        <div class="scroll-talk">
+            <ul class="talk" id="talk"></ul>
+        </div>
+        <div id="publish-box">
+            <div class="ibox">
+                <span class="face-icon"><img src="http://livestatic.videocc.net/assets/wimages/icon-emotion.png"/></span>
+                <input type="text" name="name" id="send">
+                <span class="sendbtn" id="sendBtn">发送</span>
+            </div>
+            <div class="emotions" id="emotions" hidden>
+            </div>
+        </div>
+    </div>
+
+    <div class="live-desc-section" style="display: none">
+        <div class="live-desc-info">
+            <h1><?php echo $channel_name?></h1>
+            <div class="pos-rel">
+                <div class="live-logo">
+                    <img src="<?php echo $channel_logo?>">
+                </div>
+                <div class="desc-info-content">
+                    <h><?php echo $publisher?></h>
+                    <div>
+                        <!-- <span class="desc-icon desc-like-num"><?php echo $likes?></span>-->
+                        <span class="desc-icon desc-watch-num"><?php echo $viewers?></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<script type="text/javascript">
+    var socket = null;
+    $talk = $('#talk');
+
+    function prettyTime(time) { //转换时间格式
+        var now = new Date(time),
+            year = now.getFullYear(),
+            month = now.getMonth() + 1,
+            date = now.getDate(),
+            hours = now.getHours(),
+            minutes = now.getMinutes();
+        if (minutes < 10) {
+            minutes = '0' + minutes;
+        }
+        return year + '/' + month + '/' + date + ' ' + hours + ':' + minutes;
+    }
+
+    function formatEmotions(_html) { //表情转换：表情以'[微笑]'的形式发送和接受，可以根据需要自定义表情形式
+        var $emotions = $('#emotions');
+        if (_html) {
+            var _of = -1;
+            while ((_of = _html.indexOf("[")) != -1) {
+                var _oe = _html.indexOf("]", _of + 1);
+                if (_oe == -1)
+                    break;
+                var begin = _html.substring(0, _of);
+                var end = _html.substring(_oe + 1);
+                var valstr = _html.substring(_of + 1, _oe);
+                if (valstr) {
+                    var urlstr = $emotions.find("[title='" + valstr + "']").attr('src');
+                    if (urlstr) {
+                        valstr = '<img src="' + urlstr + '" class="emotionimg">';
+                    } else {
+                        break;
+                    }
+                } else {
+                    break;
+                }
+                _html = begin + valstr + end;
+            }
+        }
+        return _html;
+    };
+
+    function addList(data) {
+        var content = data.content || data.values[0];
+        content = formatEmotions(content);
+        //var pic = "http://live.polyv.net/assets/images/avatars/37avatar.jpg";
+        /* var pic = "<?php echo $pic ?>";
+         pic = pic ? pic : 'http://live.polyv.net/assets/images/avatars/37avatar.jpg';*/
+        pic = data.user.pic ? data.user.pic : '';
+        var logo = $('<div class="talk-logo"><img src="' + pic + '" width="50px" height="50px"><div/>');
+        var nick = $('<div class="talk-content" style="width: 70%"><span class="nickname">' + data.user.nick + '</span><span class="time">' + prettyTime(data.time) + '</span><div style="word-break:break-all">'+content+'</div></div>');
+        var publisher = "<?php echo $publisher;?>";
+        if('讲师' === data.user.nick){
+            var nick = $('<div class="talk-content" style="width: 70%"><span class="nickname">' + data.user.nick + '</span><span style="background-color: #5c95eb;color: #fff;border-radius: 4px;margin-right: 10px;font-size: 10px;padding: 2px">讲师</span><span class="time">' + prettyTime(data.time) + '</span><div style="word-break:break-all">'+content+'</div></div>');
+        }
+        if('管理员' === data.user.nick){
+            var nick = $('<div class="talk-content" style="width: 70%"><span class="nickname">' + data.user.nick + '</span><span style="background-color: #5c95eb;color: #fff;border-radius: 4px;margin-right: 10px;font-size: 10px;padding: 2px">管理员</span><span class="time">' + prettyTime(data.time) + '</span><div style="word-break:break-all">'+content+'</div></div>');
+        }
+        /*var time = $('<span class="time">' + prettyTime(data.time) + '</span></div>');
+        var values = $('<div>' + content + '</div>');*/
+        var list = $('<li />');
+        if (data.user.userId === userId) {  //当前用户
+            nick.addClass('owner');
+        }
+        list.append(logo, nick);
+        $talk.append(list);
+    }
+
+    function getHistoryContent(start, end) {  //获取过往的聊天内容
+        var startIndex = start || 0,
+            endIndex = end || startIndex + 9;
+        var url = chatHost2 + '/front/history?roomId=' + roomId + '&start=' + startIndex + '&end=' + endIndex;
+        $.ajax({
+            url: url,
+            type: 'get',
+            dataType: 'jsonp'
+        })
+            .done(function (data) {
+                $(data.reverse()).each(function (index, el) {
+                    addList(this);  //生成dom添加到页面
+                });
+            });
+    }
+
+    getHistoryContent();
+
+    function getOnlineUserList() {  //获取当前用户列表
+        $.ajax({
+            url: chatHost2 + '/front/listUsers',
+            dataType: 'jsonp',
+            data: {
+                roomId: roomId,
+                page: 1,
+                len: 100 //获取用户数目
+            },
+            success: function (users) {
+                /* var t = '<p>当前用户数：' + users.count + '<p>';
+                 $(users.userlist).each(function () {
+                     var pic = this.pic;
+                     //t += '<img src="'+ pic +'" title="' + this.nick + '" /><br>';
+                     t += '<br>';
+                 })
+                 $('.userwrap').html(t);*/
+            }
+        });
+    }
+
+    setInterval(getOnlineUserList, 20000);  //每20秒刷新一次
+
+    //连接socket
+    var supportsWebSockets = 'WebSocket' in window || 'MozWebSocket' in window;
+    if (supportsWebSockets) {
+        socket = io.connect(chatHost, {
+            'query': 'token=' + chatToken,
+            'transports': ['websocket']
+        });
+    }
+    else {
+        socket = io.connect(chatHost, {
+            'query': 'token=' + chatToken,
+            'transports': ['polling']
+        });
+    }
+
+    socket.on('connect', function () {
+        //连接服务器成功
+        console.info('success');
+        getOnlineUserList();
+        socket.emit('message', JSON.stringify({ //用户登录
+            'EVENT': 'LOGIN',
+            'values': [nickname, pic, userId], //昵称、头像地址、用户id
+            'roomId': roomId
+        }));
+    });
+    socket.on('message', function (message) {  //接收信息事件
+        var data = JSON.parse(message);
+        console.log(data);
+        if (data && data.EVENT) { //根据返回的不同事件类型作相应处理
+            switch (data.EVENT) {
+                case 'CLOSEROOM': // room closed
+                    break;
+                case 'GONGGAO': //系统公告
+                    break;
+                case 'SPEAK': // 用户发言
+                    addList(data);  //将用户发言生成dom添加到页面
+                    break;
+                case 'REWARD': //奖励信息
+                    break;
+                case 'QUESTION':
+                    break;
+                case 'CLOSE_QUESTION':
+                    break;
+                case 'ANSWER':
+                    break;
+                case 'ERROR': // 出错了
+                    break;
+                case 'KICK': // 用户被踢
+                    break;
+                case 'REMOVE_HISTORY': //清空聊天记录
+                    $talk.empty();
+                    break;
+                case 'CLOSE_DANMU'://关闭弹幕
+                    break;
+                default:
+                    break;
+            }
+        }
+    });
+
+    function sendMsg() {
+        var $that = $('#send');
+        var value = $that.val().trim();
+        if (value == "") {
+            alert('内容为空');
+            return;
+        }
+        var temp_user = {
+            "nick": nickname,
+            "pic": pic,
+            "userId": userId
+        }
+        var obj = {
+            'user': temp_user,
+            'time': new Date().getTime(),
+            'content': value
+        }
+        addList(obj);
+        var data = JSON.stringify({
+            'EVENT': 'SPEAK',
+            'values': [value],
+            'roomId': roomId
+        });
+        socket.emit('message', data); //发送消息
+        $that.val('');
+
+        $(".scroll-talk").scrollTop($('#talk').outerHeight());
+
+    }
+
+    $('#send').on('keypress', function (e) {
+        if (e.which === 13) {
+            sendMsg();
+        }
+    });
+    $('#sendBtn').on('click', function () {
+        sendMsg();
+    });
+    function setEmotions() {
+        var t = '';
+        $(emotionslist).each(function () {
+            t += '<img src="' + this.url + '" title="' + this.title + '" />';
+        });
+        $('#emotions').html(t);
+    }
+
+    setEmotions();
+    $('#emotions').on('click', 'img', function () { //选择表情
+        var $that = $(this),
+            title = $that.attr("title");
+        value = $('#send').val() + '[' + title + ']'
+        $('#send').val(value);
+    });
+
+
+    // 3 手机键盘问题、
+    $('#send').on('focus', function () {
+        setTimeout(function () {
+            document.body.scrollTop = document.body.scrollHeight;
+        }, 1);
+    });
+
+    if(navigator.platform == 'iPad' || navigator.platform == 'iPhone' || navigator.platform == 'iPod')
+    {
+        $("#publish-box").css("position", "relative");
+        $("#publish-box").css("height", "0");
+    };
+</script>
+<script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
+<script type="text/javascript">
+
+    wx.config({
+        debug: false,
+        appId: 'wxc0b5dfa06f872eee',
+        timestamp: '1507874554',
+        nonceStr: '2UPcfA0Kar',
+        signature: 'e4c1358ae66e5e74e5324ded66f97dd263e0325b',
+        jsApiList: [
+            // 所有要调用的 API 都要加到这个列表中
+            'onMenuShareTimeline', 'onMenuShareAppMessage', 'onMenuShareQQ'
+        ]
+    });
+
+    wx.ready(function () {
+        //朋友圈
+
+        wx.onMenuShareTimeline({
+            title: "20170911测试标题_在线直播", // 分享标题
+            link: 'https://open.weixin.qq.com/connect/oauth2/authorize?appid=wxc0b5dfa06f872eee&redirect_uri=http://wx.hfjy.com/gongkai/index.php?s=/addon/Gongkaike/Index/zhibo/id/' + 163 + '&response_type=code&scope=snsapi_base&state=0#wechat_redirect', // 分享链接
+            imgUrl: 'http://wx-res.hfjy.com/gongkai/Public/static/haifeng/imgs/gongkaike/gkk_logo.jpg', // 分享图标
+            success: function () {
+
+            },
+            cancel: function () {
+
+            }
+        });
+        //分享到朋友
+        wx.onMenuShareAppMessage({
+            title: "20170911测试标题_在线直播", // 分享标题
+            desc: "20170911测试标题", // 分享描述
+            link: 'https://open.weixin.qq.com/connect/oauth2/authorize?appid=wxc0b5dfa06f872eee&redirect_uri=http://wx.hfjy.com/gongkai/index.php?s=/addon/Gongkaike/Index/zhibo/id/' + 163 + '&response_type=code&scope=snsapi_base&state=0#wechat_redirect', // 分享链接
+            imgUrl: 'http://wx-res.hfjy.com/gongkai/Public/static/haifeng/imgs/gongkaike/gkk_logo.jpg', // 分享图标
+            type: 'link', // 分享类型,music、video或link，不填默认为link
+            dataUrl: '', // 如果type是music或video，则要提供数据链接，默认为空
+            success: function () {
+
+            },
+            cancel: function () {
+
+            }
+        });
+    });
+
+</script>
+<script>
+    $(function () {
+        setInterval(function () {
+            $(".plvideo video").css({width: '100%'});
+            //var  text=$(".container-full .col-xs-3" ).text();
+            //console.info(text);
+        }, 100)
+    })
+</script>
+<script src="/Public/static/haifeng/js/zhibo.js"></script>
+<script src="https://player.polyv.net/livescript/liveplayer.js"></script>
+<script type="text/javascript">
+    var player = polyvObject('#player').livePlayer({
+        'width': '100%',
+        'height': '200',
+        'uid': "{$info.video_uid}",
+        'vid': "{$info.room}"
+    });
+</script>
+</body>
+</html>
