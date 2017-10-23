@@ -1,0 +1,661 @@
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) {
+    /* STYLES */
+}
+
+.weui-navbar_item {
+    position: relative;
+    display: block;
+    -webkit-box-flex: 1;
+    -webkit-flex: 1;
+    -ms-flex: 1;
+    flex: 1;
+    text-align: center;
+    font-size: 15px;
+    -webkit-tap-highlight-color: transparent;
+}
+
+.zuixin {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: flex;
+    z-index: 500;
+    top: 0;
+    width: 100%;
+    background-color: #FAFAFA;
+}
+
+.weui-zuixin-item {
+    position: relative;
+    display: block;
+    -webkit-box-flex: 1;
+    -webkit-flex: 1;
+    flex: 1;
+    padding: 11px 0;
+    text-align: center;
+    font-size: 15px;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+
+.weui-zuixin-on {
+    padding-bottom: 10px;
+    border-bottom: 3px solid #23A6F4;
+    color: #23A6F4;
+}
+
+.zuixint {
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.navbarxw {
+    height: 100%;
+    top: 0px;
+    bottom: 0px;
+    left: 0px;
+    right: 0px;
+    /*position: relative;*/
+}
+
+.tabbarxw {
+    box-sizing: border-box;
+    height: 100%;
+    overflow: auto;
+    -webkit-overflow-scrolling: touch;
+    /*padding-bottom: 50px;*/
+}
+
+.kechengall {
+    padding: 15px;
+    background-color: #ffffff;
+}
+
+.kechenglf {
+    width: 65%;
+    padding-right: 0%;
+    display: inline-block;
+}
+
+.kechenglr {
+    /*width: 25%;*/
+    float: right;
+    display: inline-block;
+}
+
+.mianfei {
+    color: #73BF81;
+    display: inline-block;
+    font-size: 8px;
+    padding: 0 1px;
+    border: 1px solid #73BF81;
+    margin-top: -3px;
+}
+
+.mianfeiimg {
+    width: 15px;
+    display: inline-block;
+    margin-right: 10px;
+    vertical-align: middle;
+    margin-top: -2px;
+}
+
+.mianfeiimg0, .mianfeiimg1, .mianfeiimg2{
+    width: 28px;
+    display: inline-block;
+    vertical-align: middle;
+    margin-top: -3px;
+    height: 15.75px;
+}
+
+.mianfeiimg3 {
+    width: 56px;
+    display: inline-block;
+    vertical-align: middle;
+    margin-top: -3px;
+    height: 15.75px;
+}
+
+.mianfeiimg4, .mianfeiimg5{
+    width: 42px;
+    display: inline-block;
+    vertical-align: middle;
+    margin-top: -3px;
+    height: 15.75px;
+}
+
+.kechenglr1 {
+    text-align: right;
+    font-size: 13px;
+}
+
+.size13 {
+    font-size: 13px;
+}
+
+.lecturer {
+    margin-top: 8px;
+    color: #777777;
+}
+
+.peoples {
+    text-align: center;
+    font-size: 14px;
+    color: #00a0e9;
+    font-weight: 400;
+    padding-right: 5px;
+}
+
+.peoples-download {
+    text-align: center;
+    font-size: 16px;
+    color: #777777;
+    font-weight: 400;
+    padding-right: 5px;
+}
+
+.weui_btnxw {
+    width: 77px;
+    position: relative;
+    display: block;
+    margin-left: auto;
+    margin-top: 25%;
+    box-sizing: border-box;
+    font-size: 14px;
+    text-align: center;
+    text-decoration: none;
+    color: #FFFFFF;
+    line-height: 2.33333333;
+    border-radius: 5px;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    overflow: hidden;
+    padding: 2px 6px;
+}
+
+.weui_btn_warnxw {
+    background-color: #23A6F4;
+}
+
+.weui_txw {
+    position: relative;
+    display: block;
+    margin-top: 35%;
+    font-size: 14px;
+    text-align: right;
+    text-decoration: none;
+    color: #23A6F4;
+}
+
+.weui-tabbarxw {
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+    left: 0;
+}
+
+.Download {
+    color: #777777;
+}
+
+
+/*detail*/
+
+.weui-panelxw {
+    background-color: #FFFFFF;
+    position: relative;
+    overflow: hidden;
+}
+
+.weui-panel-body {
+    margin-bottom: 40px;
+    padding: 0 3%;
+    width: 94%
+}
+
+.poster {
+    padding: 15px 0;
+}
+
+.posterimg {
+    width: 100%;
+    min-height: 200px;
+}
+
+.buttom-solid {
+    border-bottom: 1px solid #E5E5E5;
+}
+
+.course-description h4 {
+    margin-bottom: 6px;
+}
+
+.course-description p {
+    margin-bottom: 12px;
+}
+
+.course-directory {
+    padding-bottom: 12px;
+}
+
+.course-directory h4 {
+    margin-top: 20px;
+    margin-bottom: 6px;
+}
+
+.weui_articlexw p {
+    font-size: 16px;
+    color: #777777;
+}
+
+.textareaall {
+    padding: 20px 8px 10px 8px;
+    margin: auto;
+    text-align: center;
+}
+
+.textarea-text {
+    display: inline-block;
+    margin: auto;
+    text-align: justify;
+}
+
+.yuanall {
+    width: 110px;
+    height: 110px;
+    background-color: #ffffff;
+    border-radius: 50%;
+    -moz-border-radius: 50%;
+    -webkit-border-radius: 50%;
+    display: inline-block;
+    vertical-align: baseline;
+}
+
+.yuan {
+    width: 100px;
+    height: 100px;
+    background-color: #B3E1F8;
+    border-radius: 50%;
+    -moz-border-radius: 50%;
+    -webkit-border-radius: 50%;
+    display: inline-block;
+    vertical-align: baseline;
+}
+
+.introduce-text {
+    display: inline-block;
+    height: 100px;
+    vertical-align: middle;
+    margin-top: -40px;
+    text-align: left;
+    /* margin-left: 10px; */
+    /*position: absolute;*/
+}
+
+
+/*.introduce .size13 {
+    color: rgb(35, 35, 35);
+    font-size: 17px;
+}*/
+
+.introduce-text .tname {
+    font-size: 18px;
+    color: rgb(35, 35, 35);
+}
+
+.introduce-text .subjects {
+    font-size: 14px;
+    color: #777777;
+}
+
+.introduce-text .gang {
+    margin: 0 8px;
+}
+
+.introduce-text p {
+    display: inline-block;
+}
+
+.teacher {
+    padding-bottom: 25px;
+}
+
+.teacher .textarea {
+    width: 86%;
+    border: 1px solid #E5E5E5;
+    font-size: 16px;
+    margin: -40px auto 0 auto;
+}
+
+.size16 {
+    font-size: 16px;
+}
+
+.shallow-color {
+    color: #777777;
+}
+
+.introduce {
+    display: inline-block;
+    width: 100%;
+    text-align: center;
+    font-family: arial;
+    font-weight: 500;
+}
+
+.blue-color {
+    background-color: #23A6F4;
+}
+
+.weui_btn-up {
+    position: relative;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 14px;
+    padding-right: 14px;
+    box-sizing: border-box;
+    font-size: 18px;
+    text-align: center;
+    text-decoration: none;
+    color: #FFFFFF;
+    line-height: 2.33333333;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    overflow: hidden;
+}
+
+.blue {
+    color: #23A6F4!important;
+    ;
+}
+
+.weui_dialog_ftxw {
+    display: block;
+    -webkit-box-flex: 1;
+    -webkit-flex: 1;
+    -ms-flex: 1;
+    flex: 1;
+    text-decoration: none;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+
+.excellent-student {
+    padding-top: 20px;
+}
+
+.box-padding1 {
+    padding: 40px 0 15px 0;
+}
+
+.box-padding2 {
+    padding: 5px 0;
+}
+
+.registeredimg {
+    position: relative;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin: auto 0;
+    box-sizing: border-box;
+    text-align: center;
+    text-decoration: none;
+    color: #FFFFFF;
+    line-height: 2.33333333;
+    border-radius: 5px;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    overflow: hidden;
+    /* padding: 2px 6px; */
+    width: 85px;
+}
+
+.livetiome {
+    position: absolute;
+    text-align: center;
+    margin-left: 10%;
+    width: 80%;
+    top: 25%;
+    color: #ffffff;
+    background-color: #78797B;
+}
+
+.livetiome1 {
+    position: absolute;
+    text-align: center;
+    margin-left: 10%;
+    width: 80%;
+    top: 25%;
+    color: #ffffff;
+}
+
+.livetiomeimg {
+    width: 18%;
+}
+
+.livetiomet {
+    font-size: 18px;
+}
+
+
+/*down*/
+
+.downall {
+    padding: 2%;
+    min-width: 96%;
+    display: -webkit-flex;
+    -webkit-order: 2;
+    -webkit-flex: 1;
+}
+
+.downone {
+    padding: 1% 0;
+    width: 15%;
+    -webkit-order: 1;
+}
+
+.downtwo {
+    padding: 1% 2%;
+    /*margin-left: 2%;
+    margin-right: 2%;*/
+    -webkit-flex: 1;
+    -webkit-order: 2;
+}
+
+.downthree {
+    padding: 1% 0;
+    width: 22%;
+    -webkit-order: 3;
+}
+
+.downoneimg {
+    width: 100%;
+    padding: 5% 0;
+}
+
+.download {
+    width: 35px;
+    padding: 0 15% 0 10%;
+    margin-top: 12%;
+}
+
+.tcc_img {
+    /* float:left;*/
+    display: inline-block;
+    vertical-align: middle;
+    width: 0.4rem;
+    margin-left: 0.1rem;
+}
+
+.tcc {
+    background: transparent;
+    position: fixed;
+    z-index: 13;
+    width: 85%;
+    top: 15%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    text-align: center;
+    border-radius: 3px;
+}
+
+.tcc p {
+    font-size: 0.5rem;
+    margin-bottom: 0.2rem;
+    color: #fff;
+    text-align: left;
+    -ms-transform: rotate(-7deg);
+    /* IE 9 */
+    -moz-transform: rotate(-7deg);
+    /* Firefox */
+    -webkit-transform: rotate(-7deg);
+    /* Safari and Chrome */
+    -o-transform: rotate(-7deg);
+    /* Opera */
+    transform: rotate(-7deg);
+}
+
+.tccimg {
+    width: 100%;
+}
+
+.share-s {
+    position: fixed;
+    z-index: 13;
+    width: 85%;
+    top: 42%;
+    left: 50%;
+    background-color: transparent;
+    color: #FAFAFC;
+    -webkit-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    text-align: center;
+    border-radius: 3px;
+}
+
+.weuimask {
+    position: fixed;
+    z-index: 1;
+    width: 50%;
+    height: 26%;
+    top: 30%;
+    left: 25%;
+    background: #78797B;
+}
+
+.share-s-img {
+    font-size: 1.5rem;
+}
+
+.share-x-img {
+    width: 20%;
+}
+
+.shareall {
+    background-color: rgb(239, 243, 246);
+    height: 100%;
+    overflow-y: auto;
+}
+
+.weui_media_titlexw {
+    font-weight: 400;
+    font-size: 17px;
+    width: auto;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    word-wrap: normal;
+    word-wrap: break-word;
+    word-break: break-all;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    white-space: pre-wrap;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+}
+
+.weuitoastxw {
+    position: absolute;
+    z-index: 3;
+    width: 100%;
+    min-height: 100%;
+    background: rgba(40, 40, 40, 0.75);
+    text-align: center;
+    border-radius: 5px;
+    color: #FFFFFF;
+    top: 0;
+}
+.weuitoastindex{
+    position: absolute;
+    z-index: 3;
+    width: 100%;
+    min-height: 100%;
+    background:rgba(45, 45, 45, 0.75);
+    text-align: center;
+    color: #FFFFFF;
+    top: 0; 
+}
+
+.weui_media_infoxw {
+    padding-top: 10px;
+    font-size: 13px;
+    color: #999;
+    line-height: 1em;
+    list-style: none;
+    overflow: hidden;
+}
+
+.opnetimeall {
+    margin-top: 12%;
+    font-size: 17px;
+}
+
+.HotDate {
+    margin-top: 10px;
+}
+
+.closure {
+    padding-bottom: 50px;
+}
+
+.SeptembeOon-button{
+    position: relative;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 14px;
+    padding-right: 14px;
+    box-sizing: border-box;
+    font-size: 16px;
+    text-align: center;
+    text-decoration: none;
+    color: #FFFFFF;
+    line-height: 2.0;
+    border-radius: 5px;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    overflow: hidden;
+    background-color: #23A6F4;
+    width: 156px;
+    margin-bottom: 30px;
+}
+.SeptembeOon-all{
+    background-color: rgb(27, 27, 27);
+    width: 80%;
+    margin: 0 10%;
+    border-radius: 5px;
+    padding: 10px 0
+}
+.SeptembeOon-div {
+    display: inline-block;
+}
+.SeptembeOon-time-overcoat {
+    background-color: rgb(68, 68, 68);
+    width: 50px;
+    height: 32px;
+    border-radius: 5px;
+    /*margin-left: -2px;*/
+}
+.SeptembeOon-time-size {
+    font-size: 16px;
+}
+.SeptembeOon-time-color {
+    color: rgb(68, 68, 68);
+}
